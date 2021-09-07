@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        {% load static %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    </head>
+
+        <body class="d-flex h-100 text-center text-white bg-dark">
+    
+            <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+              <header class="mb-auto">
+                <div>
+                  <h3 class="float-md-start mb-0">UCU</h3>
+                  <nav class="nav nav-masthead justify-content-center float-md-end">
+                    <a class="nav-link" href="/admin">Login</a>
+                  </nav>
+                </div>
+              </header>
+            
+              <div class="m-5">
+                <h3>Consulta de certificados</h3>
+                <p class="lead">
+                    <form method="get">
+                        <input type="text" class="form-control-sm" placeholder="Ingrese el DNI..." name="buscar" value={{request.GET.buscar}}>
+                        <button class="btn btn-primary btn-sm" type="submit">Buscar</button>
+                    </form>
+                </p>
+            </div>
+
+            <div class="m-2">
+                {% if latest_question_list %}
+                    {% for question in latest_question_list %}
+                    <p>{{question.dni }} - {{ question.name }} - {{ question.description }}</p>
+                    {% endfor %}
+                {% else %}
+                    <p>No hay certificados para este DNI.</p>
+                {% endif %}
+            </div>
+            </div> 
+        </body>
+</html>
