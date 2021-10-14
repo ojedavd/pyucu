@@ -20,3 +20,7 @@ urlpatterns = [
     path('', include('certificados.urls')),
     path('admin/', admin.site.urls),
 ]
+
+admin.site.site_header = "Panel de administración"
+admin.site.site_title = "Consulta de certificados"
+admin.site.index_title = ""
