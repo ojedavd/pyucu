@@ -35,9 +35,22 @@
 
             <div class="m-2">
                 {% if latest_question_list %}
+                    <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">DNI</th>
+                            <th scope="col">Nombre y apellido</th>
+                            <th scope="col">Descripción del certificado</th>
+                        </tr>
+                    </thead>
                     {% for question in latest_question_list %}
-                    <p>{{question.dni }} - {{ question.name }} - {{ question.description }}</p>
+                    <tr>
+                        <td>{{question.dni }}</td>
+                        <td>{{ question.name }}</td>
+                        <td>{{ question.description }}</td>
+                    </tr>
                     {% endfor %}
+                    </table>
                 {% else %}
                     <p>No hay certificados para este DNI.</p>
                 {% endif %}
